@@ -5,52 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adriel's Portfolio</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: sans-serif;
-      background-color: #fff;
+      font-family: 'Georgia', serif;
+      background-color: #ffffff;
       color: #111;
       margin: 0;
       padding: 0;
     }
-    header {
-      padding: 2rem;
-      text-align: center;
+    nav {
+      background: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-size: 1rem;
+      border-bottom: 1px solid #ddd;
     }
-    section {
-      padding: 2rem;
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .page {
+      padding: 4rem 2rem;
       max-width: 800px;
       margin: 0 auto;
+      text-align: left;
     }
-    .section-title {
-      font-size: 2rem;
-      margin-top: 4rem;
-      margin-bottom: 1rem;
+    .page h1 {
+      font-size: 2.5rem;
+      font-weight: normal;
+      margin-bottom: 0.5rem;
     }
-    .thumbnail {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-    .placeholder {
-      font-style: italic;
-      color: #555;
+    .page p {
+      font-size: 1.1rem;
+      color: #444;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Hi, I'm Adriel. Here's my portfolio.</h1>
-  </header>
+  <nav>
+    <a href="index.html">About</a>
+    <a href="projects.html">Projects</a>
+  </nav>
 
-  <section>
-    <h2 class="section-title">Builds</h2>
-    <img src="builds-thumbnail.jpg" alt="Builds thumbnail" class="thumbnail" />
-    <p class="placeholder">Working on it...</p>
-
-    <h2 class="section-title">Writings</h2>
-    <img src="writings-thumbnail.jpg" alt="Writings thumbnail" class="thumbnail" />
-    <p class="placeholder">Working on it...</p>
-  </section>
+  <div class="page">
+    <h1>Hi, I'm Adriel. Welcome to my portfolio.</h1>
+    <p>I'm a data science student building tools, writing stories, and exploring the world through data.</p>
+  </div>
 </body>
 </html>
