@@ -1,63 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adriel's Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adriel Hakiem</title>
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
     body {
-      font-family: 'Georgia', serif;
       background-color: #ffffff;
-      color: #111;
-      margin: 0;
-      padding: 0;
+      color: #000000;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 2rem;
+      text-align: center;
     }
     nav {
-      background: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      font-size: 1rem;
-      border-bottom: 1px solid #ddd;
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
     }
     nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-    nav a:hover {
+      font-size: 1rem;
+      margin-right: 1.5rem;
       text-decoration: underline;
+      color: #0000ee;
     }
-    .page {
-      padding: 4rem 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
     }
-    .page h1 {
-      font-size: 2.5rem;
-      font-weight: normal;
-      margin-bottom: 0.5rem;
-    }
-    .page p {
+    p {
       font-size: 1.1rem;
-      color: #444;
+      max-width: 600px;
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="index.html">About</a>
-    <a href="projects.html">Projects</a>
+    <a href="index.html">about</a>
+    <a href="projects.html">projects</a>
   </nav>
 
-  <div class="page">
-    <h1>Hi, I'm Adriel. Welcome to my portfolio.</h1>
-    <p>I'm a data science student building tools, writing stories, and exploring the world through data.</p>
-  </div>
+  <h1>hi, i'm adriel. welcome to my portfolio.</h1>
+  <p>data science, storytelling, and builds. minimalist and time-obsessed. more coming soon.</p>
 </body>
 </html>
