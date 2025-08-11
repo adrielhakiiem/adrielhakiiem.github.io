@@ -17,10 +17,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      justify-content: flex-start;
+      min-height: 100vh;
       padding: 2rem;
       text-align: center;
+    }
+    img.logo {
+      max-width: 200px;
+      margin-bottom: 1.5rem;
     }
     nav {
       display: flex;
@@ -54,10 +58,28 @@
     p {
       font-size: 1.1rem;
       max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    .socials {
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .socials a {
+      color: #0000ee;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    .socials a:hover {
+      text-decoration: underline;
+      color: #000000;
     }
   </style>
 </head>
 <body>
+  <!-- Logo -->
+  <img src="logo_transparent.png" alt="Adriel Hakiem Logo" class="logo">
+
+  <!-- Navigation -->
   <nav>
     <a href="index.html">about</a>
     <a href="projects.html">projects</a>
@@ -65,5 +87,16 @@
 
   <h1>hi, i'm adriel. welcome to my portfolio.</h1>
   <p>data science, storytelling, and builds. minimalist and time-obsessed. more coming soon.</p>
+
+  <!-- Social links -->
+  <div class="socials">
+    find me on:
+    <!-- put link(s) here -->
+    <a href="#">x</a>
+    <a href="#">linkedin</a>
+    <a href="#">github</a>
+    <a href="#">instagram</a>
+    <a href="#">letterboxd</a>
+  </div>
 </body>
 </html>
