@@ -14,19 +14,22 @@
       font-family: 'Courier New', Courier, monospace;
       background-color: #ffffff;
       color: #000000;
-      padding: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding-top: 2rem;
       text-align: center;
     }
-    img.logo {
-      max-width: 200px;
+    .logo {
+      max-width: 600px;
+      height: auto;
       margin-bottom: 1.5rem;
     }
     nav {
       display: flex;
       gap: 1.5rem;
-      justify-content: center;
       margin-bottom: 2rem;
     }
     nav a {
@@ -63,10 +66,8 @@
   </style>
 </head>
 <body>
-  <!-- Logo -->
   <img src="images/logo_transparent.png" alt="Adriel Hakiem Logo" class="logo">
 
-  <!-- Navigation -->
   <nav>
     <a href="index.html">about</a>
     <a href="projects.html">projects</a>
