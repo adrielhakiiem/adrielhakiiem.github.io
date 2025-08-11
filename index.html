@@ -17,13 +17,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: flex-start; /* content starts higher */
       min-height: 100vh;
-      padding: 2rem;
+      padding-top: 2rem;
       text-align: center;
     }
-    img.logo {
-      max-width: 200px;
+    .logo {
+      max-width: 600px; /* bigger logo */
+      height: auto;
       margin-bottom: 1.5rem;
     }
     nav {
@@ -60,26 +61,20 @@
       max-width: 600px;
       margin-bottom: 2rem;
     }
-    .socials {
-      font-size: 0.95rem;
-      color: #333;
-    }
-    .socials a {
+    .social-links a {
       color: #0000ee;
       text-decoration: none;
       margin: 0 0.5rem;
     }
-    .socials a:hover {
+    .social-links a:hover {
       text-decoration: underline;
       color: #000000;
     }
   </style>
 </head>
 <body>
-  <!-- Logo -->
   <img src="images/logo_transparent.png" alt="Adriel Hakiem Logo" class="logo">
 
-  <!-- Navigation -->
   <nav>
     <a href="index.html">about</a>
     <a href="projects.html">projects</a>
