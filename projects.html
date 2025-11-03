@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects – Adriel Hakiem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -11,66 +14,58 @@
       padding: 0;
     }
     body {
-      font-family: 'Courier New', Courier, monospace;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       background-color: #ffffff;
-      color: #000000;
+      color: #111111;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       min-height: 100vh;
-      padding-top: 2rem;
+      padding-top: 3.5rem;
       text-align: center;
+      text-transform: lowercase;
+      letter-spacing: 0.005em;
     }
     .logo {
-      max-width: 500px;
+      max-width: 180px;
       height: auto;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
     nav {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.25rem;
       margin-bottom: 2rem;
     }
     nav a {
-      font-weight: bold;
       text-decoration: none;
-      color: #0000ee;
-      position: relative;
-      transition: color 0.3s ease, transform 0.2s ease;
-    }
-    nav a::before {
-      content: "[";
-      margin-right: 0.2rem;
-    }
-    nav a::after {
-      content: "]";
-      margin-left: 0.2rem;
+      color: #111111;
+      font-weight: 500;
+      transition: opacity 0.2s ease;
     }
     nav a:hover {
-      color: #000000;
-      transform: translateX(2px);
-      text-decoration: underline;
+      opacity: 0.7;
+      text-decoration: none;
     }
     .section-title {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: bold;
       text-decoration: underline;
       margin: 2rem 0 1rem;
-      text-transform: lowercase;
     }
     .entry {
       font-size: 1rem;
       margin-bottom: 2rem;
     }
 
-    /* Media Queries for smaller screens */
     @media (max-width: 768px) {
       body {
-        padding-top: 1rem;
+        padding-top: 3rem;
       }
       .logo {
-        max-width: 300px;
+        max-width: 138px;
         margin-bottom: 1rem;
       }
       nav {
@@ -78,11 +73,11 @@
         margin-bottom: 1.5rem;
       }
       .section-title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         margin: 1.5rem 0 1rem;
       }
       .entry {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         margin-bottom: 1.5rem;
       }
     }
