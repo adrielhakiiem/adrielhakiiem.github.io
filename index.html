@@ -13,6 +13,26 @@
       margin: 0;
       padding: 0;
     }
+    .contact-blurb {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      text-align: right;
+      max-width: 90vw;
+      z-index: 10;
+    }
+    .contact-blurb .heading {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #111111;
+      margin-bottom: 0.25rem;
+    }
+    .contact-blurb .links {
+      font-size: 0.95rem;
+    }
+    .contact-blurb .links a {
+      font-weight: 600; /* bold */
+    }
     body {
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
@@ -111,6 +131,16 @@
         max-width: 540px;
         padding: 0 16px;
       }
+      .contact-blurb {
+        right: 16px;
+        bottom: 16px;
+      }
+      .contact-blurb .heading {
+        font-size: 0.95rem;
+      }
+      .contact-blurb .links {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -127,13 +157,16 @@
     <p class="tag">specializing in data science</p>
     <h2 class="subhead">nothing too exciting for now,</h2>
     <h2 class="subhead">stay for a bit?</h2>
-    <h3 class="section-title">my virtual lemonade stands!</h3>
-    <p class="entry">
+  </div>
+
+  <div class="contact-blurb">
+    <div class="heading">my virtual lemonade stands!</div>
+    <div class="links">
       <a href="https://www.linkedin.com/in/adrielhakiem/" target="_blank" rel="noopener noreferrer">[linkedin]</a> &middot;
       <a href="mailto:adrielhakiiem@gmail.com">[email]</a> &middot;
       <a href="https://github.com/adrielhakiiem" target="_blank" rel="noopener noreferrer">[github]</a> &middot;
       <a href="https://www.goodreads.com/user/show/137250858-adriel-hakiem" target="_blank" rel="noopener noreferrer">[goodreads]</a>
-    </p>
+    </div>
   </div>
 </body>
 </html>
