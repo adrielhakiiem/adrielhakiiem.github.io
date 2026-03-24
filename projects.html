@@ -60,6 +60,97 @@
       margin-bottom: 2rem;
       color: #000080; /* navy */
     }
+    .projects-wrap {
+      width: 100%;
+      max-width: 720px;
+      padding: 0 24px;
+      display: flex;
+      justify-content: center;
+    }
+    .project-card {
+      width: 100%;
+      max-width: 620px;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 1.25rem;
+      text-align: left;
+      background: #ffffff;
+      color: #111111;
+    }
+    .project-title {
+      display: inline-block;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #111111;
+      text-transform: none;
+      margin-bottom: 0.55rem;
+      line-height: 1.35;
+      transition: opacity 0.2s ease;
+    }
+    .project-title:hover {
+      opacity: 0.75;
+    }
+    .project-desc {
+      font-size: 0.96rem;
+      color: #333333;
+      margin-bottom: 0.85rem;
+      text-transform: none;
+      line-height: 1.45;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.9rem;
+    }
+    .project-tag {
+      font-size: 0.76rem;
+      color: #5e5e5e;
+      border: 1px solid #e3e3e3;
+      border-radius: 999px;
+      padding: 0.18rem 0.5rem;
+      text-transform: none;
+      letter-spacing: 0.01em;
+    }
+    .project-impact {
+      font-size: 0.9rem;
+      color: #000080;
+      background: #f7f8ff;
+      border-left: 2px solid #000080;
+      border-radius: 6px;
+      padding: 0.55rem 0.7rem;
+      margin-bottom: 1rem;
+      text-transform: none;
+      line-height: 1.4;
+    }
+    .project-actions {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .project-btn {
+      text-decoration: none;
+      border: 1px solid #111111;
+      border-radius: 8px;
+      padding: 0.42rem 0.72rem;
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: #111111;
+      transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+    }
+    .project-btn:hover {
+      background: #111111;
+      color: #ffffff;
+    }
+    .project-btn.secondary {
+      border-color: #dadada;
+      color: #3b3b3b;
+    }
+    .project-btn.secondary:hover {
+      background: #f7f7f7;
+      color: #111111;
+    }
 
     @media (max-width: 768px) {
       body {
@@ -81,6 +172,18 @@
         font-size: 0.95rem;
         margin-bottom: 1.5rem;
       }
+      .projects-wrap {
+        padding: 0 16px;
+      }
+      .project-card {
+        padding: 1rem;
+      }
+      .project-title {
+        font-size: 1rem;
+      }
+      .project-desc {
+        font-size: 0.92rem;
+      }
     }
   </style>
 </head>
@@ -93,7 +196,26 @@
   </nav>
 
   <div class="section-title">builds</div>
-  <div class="entry">working on it...</div>
+  <div class="projects-wrap">
+    <article class="project-card">
+      <a class="project-title" href="projects/stress-level-prediction.html">Mining Lifestyle and Psychological Factors Influencing Stress Levels</a>
+      <p class="project-desc">Analyzed lifestyle and psychological data to identify key stress predictors.</p>
+
+      <div class="project-tags">
+        <span class="project-tag">Data Mining</span>
+        <span class="project-tag">Machine Learning</span>
+        <span class="project-tag">Psychology</span>
+        <span class="project-tag">Classification</span>
+      </div>
+
+      <p class="project-impact">Key result: Identified the strongest stress predictors to support more targeted mental wellness interventions.</p>
+
+      <div class="project-actions">
+        <a class="project-btn" href="projects/stress-level-prediction.html">View Project</a>
+        <a class="project-btn secondary" href="https://github.com/adrielhakiiem" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </article>
+  </div>
   <!-- writings section 
   <div class="section-title">writings</div>
   <div class="entry">working on it...</div>
