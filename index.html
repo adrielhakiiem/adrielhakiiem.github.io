@@ -155,8 +155,28 @@
   <div class="intro">
     <p class="tag">computer science major</p>
     <p class="tag">specializing in data science</p>
-    <h2 class="subhead">exploring how data informs decisions</h2>
     <h2 class="subhead">across different domains!</h2>
+  </div>
+
+  <div class="guestbook">
+    <h3 class="guestbook-heading">Leave something nice!</h3>
+    <div class="guestbook-container">
+      <!-- Input Section -->
+      <div class="guestbook-input">
+        <form id="guestbook-form">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <textarea name="comment" placeholder="Your Comment" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <!-- Comments Section -->
+      <div class="guestbook-comments">
+        <h4>Recent Comments</h4>
+        <ul id="comments-list">
+          <!-- Comments will be dynamically added here -->
+        </ul>
+      </div>
+    </div>
   </div>
 
   <div class="contact-blurb">
