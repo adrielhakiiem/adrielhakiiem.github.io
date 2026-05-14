@@ -1,0 +1,86 @@
+/* Guestbook Section Styles */
+.guestbook {
+  margin: 4rem auto;
+  padding: 2rem;
+  max-width: 600px;
+  border: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
+  font-family: 'Inter', sans-serif;
+}
+
+.guestbook-heading {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: lowercase;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.guestbook-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.guestbook-input label {
+  display: block;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  text-transform: lowercase;
+}
+
+.guestbook-input input,
+.guestbook-input textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #333;
+  background-color: #fff;
+  margin-bottom: 1rem;
+}
+
+.guestbook-input input:focus,
+.guestbook-input textarea:focus {
+  outline: none;
+  border-color: #888;
+}
+
+.guestbook-input button {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: lowercase;
+}
+
+.guestbook-input button:hover {
+  background-color: #555;
+}
+
+.guestbook-comments h4 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 1rem;
+  text-transform: lowercase;
+}
+
+.guestbook-comments ul {
+  list-style: none;
+  padding: 0;
+}
+
+.guestbook-comments ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+  color: #555;
+}
