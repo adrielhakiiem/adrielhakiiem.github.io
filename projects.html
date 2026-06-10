@@ -64,8 +64,27 @@
       width: 100%;
       max-width: 720px;
       padding: 0 24px;
-      display: flex;
-      justify-content: center;
+      text-align: center;
+    }
+    .projects-wrap .section-title {
+      text-align: center;
+    }
+    .section-header {
+      text-align: center;
+    }
+    .section-header .section-title {
+      margin-bottom: 0.5rem;
+    }
+    .projects-status {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #333333;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+    .projects-status a {
+      color: #000080;
+      text-decoration: underline;
     }
     .project-card {
       width: 100%;
@@ -152,6 +171,95 @@
       color: #111111;
     }
 
+    .writings-wrap {
+      width: 100%;
+      max-width: 960px;
+      padding: 0 24px 4rem;
+      text-align: left;
+    }
+    .writings-wrap .section-title {
+      text-align: center;
+    }
+    .writings-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem 3.5rem;
+      list-style: none;
+      justify-items: center;
+    }
+    .writing-card {
+      width: 82%;
+      max-width: 380px;
+      padding: 0.75rem;
+      border-radius: 4px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .writing-card:hover {
+      transform: translateY(-4px);
+    }
+    .writing-card-link {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      text-decoration: none;
+      color: inherit;
+      text-transform: none;
+    }
+    .writing-card-link:focus-visible {
+      outline: 2px solid #000080;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+    .writing-card-image {
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+      margin-bottom: 1rem;
+      background: #f4f4f4;
+    }
+    .writing-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+    .writing-card-image img.writing-cover--cocteau {
+      object-position: center 28%;
+    }
+    .writing-card:hover .writing-card-image img {
+      transform: scale(1.05);
+    }
+    .writing-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.55rem;
+    }
+    .writing-tag {
+      font-size: 0.76rem;
+      color: #5e5e5e;
+      border: 1px solid #e3e3e3;
+      border-radius: 999px;
+      padding: 0.18rem 0.5rem;
+      letter-spacing: 0.01em;
+    }
+    .writing-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #111111;
+      line-height: 1.35;
+      margin-bottom: 0.45rem;
+    }
+    .writing-desc {
+      font-size: 0.96rem;
+      color: #333333;
+      line-height: 1.5;
+    }
+
     @media (max-width: 768px) {
       body {
         padding-top: 3rem;
@@ -175,6 +283,9 @@
       .projects-wrap {
         padding: 0 16px;
       }
+      .projects-status {
+        font-size: 1.1rem;
+      }
       .project-card {
         padding: 1rem;
       }
@@ -182,6 +293,24 @@
         font-size: 1rem;
       }
       .project-desc {
+        font-size: 0.92rem;
+      }
+      .writings-wrap {
+        padding: 0 16px 3rem;
+      }
+      .writings-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .writing-card {
+        width: 84%;
+        max-width: 320px;
+        padding: 0.5rem;
+      }
+      .writing-title {
+        font-size: 1.05rem;
+      }
+      .writing-desc {
         font-size: 0.92rem;
       }
     }
@@ -195,11 +324,34 @@
     <a href="projects.html">projects</a>
   </nav>
 
-  <div class="section-title">builds</div>
-  <div class="projects-wrap">
-    <p style="font-size: 1.25rem; font-weight: 500; color: #111111;">
-      working on it... check my <a href="https://github.com/adrielhakiiem" target="_blank" rel="noopener noreferrer" style="color: #000080; text-decoration: underline;">GitHub</a> for now.
-    </p>
-  </div>
+  <section class="projects-wrap" aria-labelledby="projects-heading">
+    <header class="section-header">
+      <h2 id="projects-heading" class="section-title">builds</h2>
+      <p class="projects-status">
+        working on it... check my <a href="https://github.com/adrielhakiiem" target="_blank" rel="noopener noreferrer">GitHub</a> for now.
+      </p>
+    </header>
+  </section>
+
+  <section class="writings-wrap" aria-labelledby="writings-heading">
+    <h2 id="writings-heading" class="section-title">writings</h2>
+    <ul class="writings-grid">
+      <li class="writing-card">
+        <article>
+          <a class="writing-card-link" href="#">
+            <div class="writing-card-image">
+              <img class="writing-cover--cocteau" src="images/cocteau-twins.PNG" alt="Photograph of Cocteau Twins band members seated in a studio, NYC 1985" width="480" height="320" loading="lazy">
+            </div>
+            <p class="writing-tags">
+              <span class="writing-tag">music</span>
+              <span class="writing-tag">visual essay</span>
+            </p>
+            <h3 class="writing-title">A Small Attempt at Understanding</h3>
+            <p class="writing-desc">A personal exploration of memory, music, and the emotional weight of Cocteau Twins.</p>
+          </a>
+        </article>
+      </li>
+    </ul>
+  </section>
 </body>
 </html>
