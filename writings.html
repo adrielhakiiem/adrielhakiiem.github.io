@@ -39,6 +39,7 @@
   /* listing grid + cards */
   .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:clamp(28px,4vw,44px); }
   .item{ display:flex; flex-direction:column; align-items:flex-start; gap:10px; min-width:0; text-decoration:none; color:inherit; }
+  .item__image{ display:block; width:100%; aspect-ratio:16/10; object-fit:cover; border:1px solid var(--line); background:var(--head); }
   .item--empty{ border:1.5px dashed var(--line); padding:clamp(18px,3vw,24px); opacity:.72; transition:opacity .15s ease; }
   .item--empty:hover, .item--empty:focus-visible{ opacity:1; outline:none; }
   .item__year{ font-size:13px; font-weight:700; }
@@ -88,14 +89,20 @@
 <main class="wrap">
   <!-- ADD A WRITING:
        1. Copy writing1.html inside the /writings/ folder to writing2.html (etc.) and write your piece in it.
-       2. Duplicate the <a class="item"> card below, point its href at the new file, and fill in date / title / summary. -->
+       2. Duplicate the <a class="item"> card below, point its href at the new file, and fill in date / title / summary.
+       3. Replace the image src with your writing's thumbnail. -->
   <div class="grid">
 
-    <a class="item item--empty" href="writings/writing1.html">
-      <div class="item__year">DATE</div>
-      <div class="item__title">[Writing title]</div>
-      <div class="item__desc">A line or two on what this piece is about. Click through to read the full thing.</div>
-      <div class="tags"><span class="tag">Tag</span></div>
+    <a class="item" href="writings/writing1.html">
+      <img class="item__image" src="assets/cocteau-twins.jpg" alt="Cocteau Twins">
+      <div class="item__year">Oct 2026</div>
+      <div class="item__title">A Small Attempt at Understanding</div>
+      <div class="item__desc">Can data explain the music we attach to our memories? An interactive exploration of Cocteau Twins' discography, blending data analysis with personal storytelling.</div>
+      <div class="tags">
+        <span class="tag">Data storytelling</span>
+        <span class="tag">Data visualization</span>
+        <span class="tag">Exploratory data analysis</span>
+      </div>
     </a>
 
   </div>

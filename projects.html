@@ -39,6 +39,7 @@
   /* listing grid + cards */
   .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:clamp(28px,4vw,44px); }
   .item{ display:flex; flex-direction:column; align-items:flex-start; gap:10px; min-width:0; text-decoration:none; color:inherit; }
+  .item__image{ display:block; width:100%; aspect-ratio:16/10; object-fit:cover; border:1px solid var(--line); background:var(--head); }
   .item--empty{ border:1.5px dashed var(--line); padding:clamp(18px,3vw,24px); opacity:.72; transition:opacity .15s ease; }
   .item--empty:hover, .item--empty:focus-visible{ opacity:1; outline:none; }
   .item__year{ font-size:13px; font-weight:700; }
@@ -88,13 +89,15 @@
 <main class="wrap">
   <!-- ADD A PROJECT:
        1. Copy project1.html inside the /projects/ folder to project2.html (etc.) and write your project in it.
-       2. Duplicate the <a class="item"> card below, point its href at the new file, and fill in year / title / description / tags. -->
+       2. Duplicate the <a class="item"> card below, point its href at the new file, and fill in year / title / description / tags.
+       3. Replace the image src with your project's thumbnail. -->
   <div class="grid">
 
     <a class="item item--empty" href="projects/project1.html">
+      <img class="item__image" src="assets/card-placeholder.svg" alt="">
       <div class="item__year">YEAR</div>
       <div class="item__title">[Project title]</div>
-      <div class="item__desc">Short description — what it does, the stack, the outcome. Click through for the full write-up.</div>
+      <div class="item__desc">For the love of god... just give me a second.</div>
       <div class="tags"><span class="tag">Tag</span><span class="tag">Tag</span></div>
     </a>
 

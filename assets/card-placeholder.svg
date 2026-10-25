@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title">
+  <title>Abstract card image placeholder</title>
+  <rect width="800" height="500" fill="#F7E74F"/>
+  <circle cx="610" cy="145" r="170" fill="#2E8B6B"/>
+  <path d="M0 405 210 220l125 105 120-90 345 265H0Z" fill="#121212"/>
+  <circle cx="185" cy="155" r="72" fill="#FBFAF7"/>
+</svg>
