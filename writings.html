@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Writings — Adriel</title>
+<style>
+  *{box-sizing:border-box}
+  :root{
+    --bg:#FBFAF7; --fg:#121212; --line:#121212;
+    --head:#2E8B6B; --on-head:#FFFFFF;
+    --sans:'Helvetica Neue',Helvetica,Arial,sans-serif; --maxw:1040px;
+  }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){ --bg:#0E0E10; --fg:#ECEAE4; --line:#ECEAE4; color-scheme:dark; }}
+  :root[data-theme="dark"]{ --bg:#0E0E10; --fg:#ECEAE4; --line:#ECEAE4; color-scheme:dark; }
+  html,body{ margin:0; padding:0; }
+  body{ background:var(--bg); color:var(--fg); font-family:var(--sans); min-height:100%; }
+  img{ max-width:100%; }
+  a{ color:inherit; }
+
+  .hero{ background:var(--head); color:var(--on-head); width:100%; }
+  .hero__in{ max-width:var(--maxw); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:clamp(16px,4vw,40px);
+    padding-block:clamp(38px,9vw,82px); padding-left:max(24px,env(safe-area-inset-left,0px)); padding-right:max(24px,env(safe-area-inset-right,0px)); }
+  .hero__title{ font-size:clamp(38px,9vw,82px); font-weight:800; letter-spacing:-.03em; line-height:.95; overflow-wrap:anywhere; }
+  .hero__logo{ width:clamp(110px,22vw,210px); height:auto; flex-shrink:0; display:block; }
+
+  .bar{ border-bottom:1px solid var(--line); }
+  .bar__in{ max-width:var(--maxw); margin:0 auto; display:flex; gap:clamp(16px,4vw,30px); flex-wrap:wrap; padding-block:14px;
+    padding-left:max(24px,env(safe-area-inset-left,0px)); padding-right:max(24px,env(safe-area-inset-right,0px)); }
+  .bar a{ font-size:14px; font-weight:600; text-decoration:none; position:relative; padding:2px 0; }
+  .bar a::after{ content:""; position:absolute; left:0; right:100%; bottom:0; height:1.5px; background:var(--fg); transition:right .16s ease; }
+  .bar a:hover::after, .bar a:focus-visible::after, .bar a[aria-current]::after{ right:0; }
+  .bar a[aria-current]{ font-weight:800; }
+  .bar a:focus-visible{ outline:none; }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding-block:clamp(34px,6vw,60px);
+    padding-left:max(24px,env(safe-area-inset-left,0px)); padding-right:max(24px,env(safe-area-inset-right,0px)); }
+
+  /* listing grid + cards */
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:clamp(28px,4vw,44px); }
+  .item{ display:flex; flex-direction:column; align-items:flex-start; gap:10px; min-width:0; text-decoration:none; color:inherit; }
+  .item--empty{ border:1.5px dashed var(--line); padding:clamp(18px,3vw,24px); opacity:.72; transition:opacity .15s ease; }
+  .item--empty:hover, .item--empty:focus-visible{ opacity:1; outline:none; }
+  .item__year{ font-size:13px; font-weight:700; }
+  .item__title{ font-size:clamp(18px,2.4vw,22px); font-weight:700; line-height:1.15; letter-spacing:-.01em; }
+  .item__desc{ font-size:15px; font-weight:400; line-height:1.5; }
+  .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:2px; }
+  .tag{ font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; border:1px solid var(--line); padding:5px 11px; line-height:1; }
+
+  /* prose (about + detail pages) */
+  .doc{ max-width:680px; display:flex; flex-direction:column; gap:22px; }
+  .doc p{ font-size:clamp(16px,2.1vw,18px); line-height:1.6; font-weight:400; }
+  .doc a{ font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+  .doc__quote{ border-left:3px solid var(--head); padding-left:20px; font-size:clamp(18px,2.4vw,21px); line-height:1.45; font-weight:500; }
+  .doc__quote cite{ display:block; margin-top:12px; font-size:15px; font-weight:600; font-style:normal; }
+  .doc__meta{ font-size:14px; font-weight:600; opacity:.85; }
+  .back{ margin-bottom:26px; }
+  .back a{ font-size:14px; font-weight:700; text-decoration:none; }
+  .back a:hover{ text-decoration:underline; text-underline-offset:3px; }
+
+  .theme{ position:fixed; top:env(safe-area-inset-top,0px); right:0; margin:12px; margin-right:max(12px,env(safe-area-inset-right,0px));
+    width:34px; height:34px; border-radius:50%; border:1px solid currentColor; background:transparent; color:var(--on-head);
+    opacity:.6; cursor:pointer; font-size:14px; line-height:1; display:grid; place-items:center; transition:opacity .15s ease; z-index:5; }
+  .theme:hover{ opacity:1; }
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+
+<button class="theme" id="theme" aria-label="Toggle light / dark">◑</button>
+
+<header class="hero">
+  <div class="hero__in">
+    <h1 class="hero__title">writings</h1>
+    <img class="hero__logo" src="data:image/png;base64,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" alt="Adriel's Portfolio">
+  </div>
+</header>
+
+<nav class="bar">
+  <div class="bar__in">
+    <a href="index.html">home</a>
+    <a href="about.html">about</a>
+    <a href="projects.html">projects</a>
+    <a href="writings.html" aria-current="page">writings</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <!-- ADD A WRITING:
+       1. Copy writing1.html inside the /writings/ folder to writing2.html (etc.) and write your piece in it.
+       2. Duplicate the <a class="item"> card below, point its href at the new file, and fill in date / title / summary. -->
+  <div class="grid">
+
+    <a class="item item--empty" href="writings/writing1.html">
+      <div class="item__year">DATE</div>
+      <div class="item__title">[Writing title]</div>
+      <div class="item__desc">A line or two on what this piece is about. Click through to read the full thing.</div>
+      <div class="tags"><span class="tag">Tag</span></div>
+    </a>
+
+  </div>
+</main>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('theme');
+    var saved; try{ saved=localStorage.getItem('adriel-theme'); }catch(e){}
+    if(saved){ root.setAttribute('data-theme',saved); }
+    btn.addEventListener('click',function(){
+      var cur=root.getAttribute('data-theme');
+      var isDark = cur ? cur==='dark' : matchMedia('(prefers-color-scheme:dark)').matches;
+      var next = isDark ? 'light' : 'dark';
+      root.setAttribute('data-theme',next);
+      try{ localStorage.setItem('adriel-theme',next); }catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>

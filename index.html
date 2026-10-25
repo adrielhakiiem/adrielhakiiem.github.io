@@ -1,172 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>adriel hakiem</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    .contact-blurb {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      text-align: right;
-      max-width: 90vw;
-      z-index: 10;
-    }
-    .contact-blurb .heading {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #111111;
-      margin-bottom: 0.25rem;
-    }
-    .contact-blurb .links {
-      font-size: 0.95rem;
-    }
-    .contact-blurb .links a {
-      font-weight: 600; /* bold */
-    }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background-color: #ffffff;
-      color: #111111;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      padding-top: 3.5rem;
-      text-align: center;
-      text-transform: lowercase;
-      letter-spacing: 0.005em;
-    }
-    .logo {
-      max-width: 180px;
-      height: auto;
-      margin-bottom: 1.25rem;
-    }
-    nav {
-      display: flex;
-      gap: 1.25rem;
-      margin-bottom: 2.25rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: #111111;
-      font-weight: 500;
-      transition: opacity 0.2s ease;
-    }
-    nav a:hover {
-      opacity: 0.7;
-      text-decoration: none;
-    }
-    .section-title {
-      font-size: 1.25rem;
-      font-weight: bold;
-      text-decoration: underline;
-      margin: 2rem 0 1rem;
-    }
-    .entry {
-      font-size: 1rem;
-      margin-bottom: 2rem;
-    }
-    .tag {
-      font-size: 0.95rem;
-      color: #111111; /* black */
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.01em;
-      font-weight: 400;
-    }
-    .subhead {
-      font-size: 1.4rem;
-      line-height: 1.35;
-      font-weight: 500;
-      margin-bottom: 0.25rem;
-      color: #000080; /* navy */
-    }
-    .intro {
-      width: 100%;
-      max-width: 560px;
-      margin: 0 auto;
-      padding: 0 24px;
-      text-align: left;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}img{max-width:100%}</style>
+<title>Adriel — Card</title>
+<style>
+  /* Layout: a single flip card on a toggled ground. Front = royal-blue + white logo;
+     click to flip to the Swiss back (contacts + page nav). All back text black, Helvetica. */
+  :root{
+    --ground:#E7E4DC; --ground-fg:#17150F;
+    --ar:1.4/1; --cardw:min(92vw,440px);
+    --royal:#2A398E; --royal-ink:#F3F5FF;
+    --paper:#F6F5F1; --ink:#111111;
+    --sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+    --shadow:0 1px 0 rgba(0,0,0,.04), 0 18px 40px -24px rgba(0,0,0,.4);
+  }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+    --ground:#0A0A0B; --ground-fg:#EDEBE6;
+    --shadow:0 0 0 1px rgba(255,255,255,.05), 0 26px 60px -30px rgba(0,0,0,.85);
+    color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --ground:#0A0A0B; --ground-fg:#EDEBE6;
+    --shadow:0 0 0 1px rgba(255,255,255,.05), 0 26px 60px -30px rgba(0,0,0,.85);
+    color-scheme:dark;
+  }
 
-    @media (max-width: 768px) {
-      body {
-        padding-top: 3rem;
-      }
-      .logo {
-        max-width: 138px;
-        margin-bottom: 1rem;
-      }
-      nav {
-        gap: 1rem;
-        margin-bottom: 1.75rem;
-      }
-      .section-title {
-        font-size: 1.1rem;
-        margin: 1.5rem 0 1rem;
-      }
-      .entry {
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
-      }
-      .tag {
-        font-size: 0.9rem;
-      }
-      .subhead {
-        font-size: 1.2rem;
-      }
-      .intro {
-        max-width: 540px;
-        padding: 0 16px;
-      }
-      .contact-blurb {
-        right: 16px;
-        bottom: 16px;
-      }
-      .contact-blurb .heading {
-        font-size: 0.95rem;
-      }
-      .contact-blurb .links {
-        font-size: 0.9rem;
-      }
-    }
-  </style>
+  *{box-sizing:border-box}
+  body{ background:var(--ground); color:var(--ground-fg); font-family:var(--sans); min-height:100%; }
+
+  .stage{
+    min-height:100dvh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding-block:clamp(34px,8vh,74px);
+    padding-left:max(16px,env(safe-area-inset-left,0px));
+    padding-right:max(16px,env(safe-area-inset-right,0px));
+  }
+  .wrap{ display:flex; flex-direction:column; align-items:center; gap:clamp(14px,3.4vw,20px); width:var(--cardw); }
+
+  /* ---- FLIP ---- */
+  .flip{ width:100%; aspect-ratio:var(--ar); perspective:1500px; }
+  .flip__inner{ position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform .6s cubic-bezier(.22,.61,.36,1); }
+  .flip.is-flipped .flip__inner{ transform:rotateY(180deg); }
+  .face{ position:absolute; inset:0; border-radius:0; box-shadow:var(--shadow); overflow:hidden; backface-visibility:hidden; -webkit-backface-visibility:hidden; }
+  .flip:not(.is-flipped) .back{ pointer-events:none; }
+  .flip.is-flipped .front{ pointer-events:none; }
+
+  /* front */
+  .front{ background:var(--royal); display:grid; place-items:center; padding:clamp(26px,8%,44px); cursor:pointer; }
+  .front .logo{ width:72%; max-width:300px; height:auto; display:block; }
+  .front:focus-visible{ outline:3px solid var(--royal-ink); outline-offset:-3px; }
+
+  /* back */
+  .back{ background:var(--paper); color:var(--ink); transform:rotateY(180deg); padding:clamp(18px,5.2%,26px); display:flex; flex-direction:column; align-items:flex-start; gap:clamp(9px,2.6%,14px); }
+  .blk{ display:flex; flex-direction:column; line-height:1.35; }
+  .nm{ font-size:clamp(16px,4.4vw,19px); font-weight:700; letter-spacing:.005em; }
+  .rl{ font-size:clamp(13px,3.6vw,15px); font-weight:700; }
+  .loc{ font-size:clamp(13px,3.6vw,15px); font-weight:400; }
+
+  .contact{ display:flex; flex-direction:column; padding-left:clamp(24px,9%,42px); line-height:1.4; }
+  .ln{ font-size:clamp(13px,3.6vw,15px); font-weight:400; color:var(--ink); text-decoration:none; width:fit-content; max-width:100%; position:relative; padding:1px 0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .ln::after{ content:""; position:absolute; left:0; right:100%; bottom:1px; height:1.5px; background:var(--ink); transition:right .16s ease; }
+  .ln:hover::after, .ln:focus-visible::after{ right:0; }
+  .ln:focus-visible{ outline:none; }
+
+  .nav{ align-self:flex-end; margin-top:auto; display:flex; flex-direction:column; align-items:flex-end; line-height:1.3; }
+  .nav a{ font-size:clamp(13px,3.6vw,15px); font-weight:700; color:var(--ink); text-decoration:none; position:relative; padding:1px 0; }
+  .nav a::after{ content:""; position:absolute; right:0; left:100%; bottom:1px; height:1.5px; background:var(--ink); transition:left .16s ease; }
+  .nav a:hover::after, .nav a:focus-visible::after{ left:0; }
+  .nav a:focus-visible{ outline:none; }
+
+  /* flip label */
+  .fliplabel{ background:none; border:0; color:var(--ground-fg); font-family:var(--sans); font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:600; cursor:pointer; opacity:.65; padding:5px 6px; transition:opacity .15s ease; }
+  .fliplabel:hover, .fliplabel:focus-visible{ opacity:1; }
+  .fliplabel:focus-visible{ outline:1px solid currentColor; outline-offset:3px; }
+
+  .theme{
+    position:fixed; top:env(safe-area-inset-top,0px); right:0;
+    margin:12px; margin-right:max(12px,env(safe-area-inset-right,0px));
+    width:34px; height:34px; border-radius:50%;
+    border:1px solid currentColor; background:transparent; color:var(--ground-fg);
+    opacity:.5; cursor:pointer; font-size:14px; line-height:1; display:grid; place-items:center; transition:opacity .15s ease;
+  }
+  .theme:hover{ opacity:1; }
+
+  @media (prefers-reduced-motion:reduce){ .flip__inner, .ln::after, .nav a::after{ transition:none } }
+</style>
 </head>
 <body>
-  <img src="images/logo_transparent-2.png" alt="adriel hakiem logo" class="logo">
+<button class="theme" id="theme" aria-label="Toggle light / dark">◑</button>
 
-  <nav>
-    <a href="index.html">about</a>
-    <a href="projects.html">projects</a>
-  </nav>
+<main class="stage">
+  <div class="wrap">
+    <div class="flip" id="flip">
+      <div class="flip__inner">
 
-  <div class="intro">
-    <p class="tag">computer science major</p>
-    <p class="tag">specializing in data science</p>
-    <h2 class="subhead">exploring how data informs decisions</h2>
-    <h2 class="subhead">across different domains!</h2>
-  </div>
+        <article class="face front" id="frontFace" role="button" tabindex="0" aria-label="Flip card to contact details">
+          <img class="logo" src="data:image/png;base64,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" alt="Mohamad Adriel Hakiem — Portfolio">
+        </article>
 
-  <div class="contact-blurb">
-    <div class="heading">my virtual lemonade stands!</div>
-    <div class="links">
-      <a href="https://www.linkedin.com/in/adrielhakiem/" target="_blank" rel="noopener noreferrer">[linkedin]</a> &middot;
-      <a href="mailto:adrielhakiiem@gmail.com">[email]</a> &middot;
-      <a href="https://github.com/adrielhakiiem" target="_blank" rel="noopener noreferrer">[github]</a>
-      <!-- <a href="https://www.goodreads.com/user/show/137250858-adriel-hakiem" target="_blank" rel="noopener noreferrer">[goodreads]</a> --> 
+        <article class="face back">
+          <div class="blk">
+            <div class="nm">Mohamad Adriel Hakiem</div>
+            <div class="rl">Data Engineer</div>
+          </div>
+
+          <div class="blk">
+            <div class="loc">Kuala Lumpur</div>
+            <div class="loc">Malaysia</div>
+          </div>
+
+          <div class="contact">
+            <a class="ln" href="mailto:adrielhakiiem@gmail.com">adrielhakiiem@gmail.com</a>
+            <a class="ln" href="https://github.com/adrielhakiiem" target="_blank" rel="noopener">github.com/adrielhakiiem</a>
+            <a class="ln" href="https://www.linkedin.com/in/adrielhakiem/" target="_blank" rel="noopener">in/adrielhakiem</a>
+          </div>
+
+          <nav class="nav">
+            <a href="about.html">about</a>
+            <a href="projects.html">projects</a>
+            <a href="writings.html">writings</a>
+          </nav>
+        </article>
+
+      </div>
     </div>
+
+    <button class="fliplabel" id="fliplabel" aria-controls="flip">click to flip →</button>
   </div>
+</main>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('theme');
+    var saved; try{ saved=localStorage.getItem('adriel-theme'); }catch(e){}
+    if(saved){ root.setAttribute('data-theme',saved); }
+    btn.addEventListener('click',function(){
+      var cur=root.getAttribute('data-theme');
+      var isDark = cur ? cur==='dark' : matchMedia('(prefers-color-scheme:dark)').matches;
+      var next = isDark ? 'light' : 'dark';
+      root.setAttribute('data-theme',next);
+      try{ localStorage.setItem('adriel-theme',next); }catch(e){}
+    });
+
+    var flip=document.getElementById('flip'), label=document.getElementById('fliplabel'), front=document.getElementById('frontFace');
+    function set(f){
+      flip.classList.toggle('is-flipped', f);
+      label.textContent = f ? '← flip back' : 'click to flip →';
+      front.setAttribute('aria-pressed', f ? 'true':'false');
+    }
+    label.addEventListener('click', function(){ set(!flip.classList.contains('is-flipped')); });
+    front.addEventListener('click', function(){ set(true); });
+    front.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); set(true); } });
+  })();
+</script>
 </body>
 </html>
