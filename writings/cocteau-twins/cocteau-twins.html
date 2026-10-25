@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>a small attempt at understanding — Adriel</title>
+<meta name="description" content="can data help me understand the music attached to my memories? an interactive essay on cocteau twins, built from 259 rows of spotify audio features.">
+<meta property="og:title" content="a small attempt at understanding">
+<meta property="og:description" content="cocteau twins, 85 songs, and whether data can explain why some music sticks to memory.">
+<meta property="og:image" content="https://adrielhakiiem.github.io/assets/cocteau-twins.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0d0c11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="essay.css">
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
+
+<nav class="top">
+  <a href="../../writings.html" class="top__back">← writings</a>
+  <span class="top__title">a small attempt at understanding</span>
+  <a href="../../index.html" class="top__home">adriel</a>
+</nav>
+
+<!-- ============================================================ HERO -->
+<header class="hero">
+  <div class="hero__in">
+    <p class="kicker">an essay in data · cocteau twins, 1982–1996</p>
+    <h1 class="hero__title"><span>a small attempt</span> <span>at understanding</span></h1>
+    <p class="hero__dek">some songs stay with me longer than the moments they played in. this is me trying to measure why, with 259 rows of spotify data, nine albums, and a feeling that it won't quite be enough.</p>
+    <p class="hero__by">by <a href="https://www.linkedin.com/in/adrielhakiem/" target="_blank" rel="noopener">adriel hakiem</a> · october 2026</p>
+  </div>
+  <p class="hero__cue" aria-hidden="true">scroll</p>
+</header>
+
+<main>
+
+<!-- ============================================================ PROLOGUE -->
+<section class="prose" id="prologue">
+
+  <p>a younger friend joked recently that in sitcoms, the age i just turned is basically the prologue. “why worry? life only starts after 25.”</p>
+  <p>i turned 25 a few days ago. the car i was so excited to drive at 13 has spent 12 years behind the old wooden gates of my house. the man who used to bring me newspapers and riddles is no longer here. some people i knew never got to 25 at all. the girl who sat next to me at tuition when i was 12 didn't even get to turn 23. what am i supposed to feel?</p>
+  <p>i didn't celebrate much this year. all i wanted was to take the plastic chair that's attached to so many memories, sit down, and go back through all of it. and what brings memories back for me, more than anything, is music. lately, it's been cocteau twins (can you blame me?).</p>
+  <p>so i wanted to know why. not what decades of research say about music and memory, just a smaller question: what is it in <i>their</i> music, specifically? half the time i can't even tell what she's singing.</p>
+
+  <figure class="photo">
+    <img src="../../assets/cocteau-twins.jpg" alt="Cocteau Twins posing against a pale wall: Elizabeth Fraser in front in an embroidered jacket, Robin Guthrie and Simon Raymonde behind her." loading="lazy">
+    <figcaption>cocteau twins: elizabeth fraser, robin guthrie, simon raymonde.</figcaption>
+  </figure>
+
+  <p>words weren't going to get me there, so i tried a different language.</p>
+  <p>spotify keeps a set of measurements for every song it hosts: how energetic it sounds, how positive, how acoustic, how danceable, how likely it is to have no vocals at all. none of these numbers know who i was when i first heard a song. but they might know something about the sound itself, and the sound is the part i can actually share.</p>
+  <p class="question">can data help me understand the music attached to my memories, even if it can never fully explain why those memories matter?</p>
+
+  <div class="glossary" aria-label="what the measurements mean">
+    <p class="glossary__head">the measurements, in plain words</p>
+    <dl>
+      <div><dt>energy</dt><dd>how intense and busy a song feels. 0 is still, 1 is a wall of sound.</dd></div>
+      <div><dt>positivity <small>(valence)</small></dt><dd>how musically “happy” it sounds. 0 is sad or tense, 1 is cheerful. this is a model's guess, not a feeling.</dd></div>
+      <div><dt>acousticness</dt><dd>confidence that the song is acoustic rather than electric or processed.</dd></div>
+      <div><dt>danceability</dt><dd>how steady and danceable the rhythm is.</dd></div>
+      <div><dt>instrumentalness</dt><dd>how likely it is that there are no vocals. above 0.5 means “probably instrumental”.</dd></div>
+      <div><dt>loudness</dt><dd>average volume in decibels. closer to 0 is louder.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============================================================ 1. THE MESS -->
+<section class="chapter" id="mess">
+  <header class="chapter__head">
+    <p class="chapter__num">i.</p>
+    <h2>first, the mess</h2>
+  </header>
+  <div class="scrolly" data-chart="units">
+    <div class="scrolly__graphic"><figure class="viz" id="viz-units"></figure></div>
+    <div class="scrolly__steps">
+      <div class="step" data-step="0"><p>the dataset has <b>259 rows</b>. here is every one of them, one square each, in the order the file lists them.</p></div>
+      <div class="step" data-step="1"><p>but cocteau twins only made <b>nine studio albums</b> in this period: eight of their own and one, <i>the moon and the melodies</i>, shared with the composer harold budd. together they hold <b>85 songs</b>.</p></div>
+      <div class="step" data-step="2"><p><i>four-calendar café</i> appears <b>four times</b> under three spellings: “four-calendar café”, “four-calendar cafe” and “four calender cafe”. one copy says it came out in <b>1991</b>, two years before it did. <i>milk &amp; kisses</i> appears four times too.</p><p class="note">the year column describes the edition spotify has, not when the music was made.</p></div>
+      <div class="step" data-step="3"><p>then there are five compilations, from a 1986 sampler to a 2018 box set. most of their tracks are album songs again. but <b>70 recordings</b> only exist there: ep tracks, b-sides, alternate versions, christmas covers, a bbc session.</p></div>
+      <div class="step" data-step="4"><p>so i kept <b>one copy of each album</b>, the non-remastered one whose numbers agreed with the other copies, and put the 70 extras on a separate shelf. <b>104 rows</b> were repeats.</p><p>from here on, unless i say otherwise, we're listening to <b>85 songs</b>.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 2. SAME SONG, MANY COPIES -->
+<section class="chapter" id="copies">
+  <header class="chapter__head">
+    <p class="chapter__num">ii.</p>
+    <h2>the same song, measured five times</h2>
+  </header>
+  <div class="prose">
+    <p>before trusting any of this, i wanted to know how steady the numbers are. the duplicates turned out to be useful. every song on <i>four-calendar café</i> and <i>milk &amp; kisses</i> was measured four or five times, once per copy. in theory, the copies should agree.</p>
+  </div>
+  <figure class="viz viz--wide" id="viz-copies">
+    <div class="viz__controls" role="group" aria-label="choose a measurement">
+      <button type="button" data-metric="energy" aria-pressed="true">energy</button>
+      <button type="button" data-metric="tempo" aria-pressed="false">tempo</button>
+    </div>
+    <div class="viz__legend">
+      <span><i class="key key--chosen"></i>the copy i kept</span>
+      <span><i class="key key--odd"></i>the odd copy out</span>
+      <span><i class="key key--other"></i>other copies</span>
+    </div>
+    <div class="viz__plot"></div>
+  </figure>
+  <div class="prose">
+    <p>mostly they do. but one copy of <i>four-calendar café</i> is about <b>4 db quieter</b> than the others, and <b>every one of its ten songs</b> scores lower on energy. on <i>milk &amp; kisses</i>, one copy scores higher on almost everything. across all copies of these 20 songs, louder versions tend to read as more energetic (ρ = 0.62).</p>
+    <p>tempo is worse. switch the chart to tempo: “essence” is measured at <b>64, 100 and 140 bpm</b> depending on which copy you ask. in <b>6 of the 20 songs</b>, copies disagree by more than a quarter, usually because the algorithm hears half-time or double-time. so from here on i leave tempo out of anything that compares songs.</p>
+    <p class="pull">these numbers describe a file, not a song, and certainly not a feeling. they're useful, but they're a translation.</p>
+  </div>
+</section>
+
+<!-- ============================================================ 3. DISCOGRAPHY -->
+<section class="chapter" id="albums">
+  <header class="chapter__head">
+    <p class="chapter__num">iii.</p>
+    <h2>nine albums, in order</h2>
+  </header>
+  <div class="scrolly scrolly--wide" data-chart="disco">
+    <div class="scrolly__graphic"><figure class="viz" id="viz-disco"></figure></div>
+    <div class="scrolly__steps">
+      <div class="step" data-step="0"><p>each dot is a song, each column an album, oldest on the left. the line runs through each album's median.</p><p><i>garlands</i> (1982) and <i>head over heels</i> (1983) are the most energetic records they made, with medians of <b>0.88</b> and <b>0.84</b>.</p></div>
+      <div class="step" data-step="1"><p>then, in 1986, energy falls off a cliff. <i>victorialand</i> and <i>the moon and the melodies</i> sit at <b>0.30</b> and <b>0.21</b>.</p></div>
+      <div class="step" data-step="2"><p>they're the same two records spotify hears as <b>acoustic</b>, with medians of 0.92 and 0.85, against almost nothing on every album around them. it's a quiet year in the middle of a loud career.</p></div>
+      <div class="step" data-step="3"><p>positivity tells a slower story. <i>head over heels</i> has a median of <b>0.10</b>, the bleakest-sounding record by this measure. by <i>four-calendar café</i> (0.52) and <i>milk &amp; kisses</i> (0.50), the band had drifted somewhere brighter.</p><p class="note">across all 85 songs, later songs tend to score higher (ρ = 0.42).</p></div>
+      <div class="step" data-step="4"><p>this is the strangest one. on <i>garlands</i> and <i>head over heels</i>, spotify's model thinks most songs probably have <b>no vocals</b> (medians 0.79 and 0.77).</p><p>elizabeth fraser sings on them. “sugar hiccup” scores <b>0.98</b>. “blind dumb deaf” scores <b>0.92</b>. from <i>blue bell knoll</i> on, the score is almost zero.</p></div>
+      <div class="step" data-step="5"><p>i can only guess why. maybe early on, her voice sits so deep inside the guitars and echo that the model hears it as one more instrument. it's a guess, not a finding.</p><p class="note">your turn: switch between measurements with the buttons above the chart.</p></div>
+    </div>
+  </div>
+  <details class="table-view">
+    <summary>see the album medians as a table</summary>
+    <div id="table-albums"></div>
+  </details>
+</section>
+
+<!-- ============================================================ 4. LOUD ≠ HAPPY -->
+<section class="chapter" id="mood">
+  <header class="chapter__head">
+    <p class="chapter__num">iv.</p>
+    <h2>loud doesn't mean happy</h2>
+  </header>
+  <div class="scrolly" data-chart="scatter">
+    <div class="scrolly__graphic"><figure class="viz" id="viz-scatter"></figure></div>
+    <div class="scrolly__steps">
+      <div class="step" data-step="0"><p>here every song is placed by its <b>energy</b> (left to right) and its <b>positivity</b> (bottom to top).</p><p>if energetic songs were also happy songs, the dots would climb from the bottom-left corner to the top-right. they barely do (ρ = 0.33, a weak tendency).</p></div>
+      <div class="step" data-step="1"><p><b>61</b> of the 85 songs score above 0.5 on energy. <b>40</b> of those 61 score below 0.5 on positivity.</p><p>only <b>2</b> songs are quiet <i>and</i> bright.</p></div>
+      <div class="step" data-step="2"><p><i>head over heels</i> lives almost entirely in the loud, dark corner. “in our angelhood” is one of the most energetic songs in the catalogue (<b>0.96</b>) and among the least positive (<b>0.03</b>).</p></div>
+      <div class="step" data-step="3"><p>the exceptions are lovely. “pitch the baby” (<b>0.98</b>) and “a kissed out red floatboat” (<b>0.97</b>) are as bright as this band gets. on the quiet side, “oomingmak” is the gentle song spotify hears as genuinely happy (<b>0.91</b>).</p></div>
+      <div class="step" data-step="4"><p>so a lot of this music is intense without being happy. it's loud, but it doesn't tell you what to feel.</p><p>maybe that leaves room. i don't know if that's why memories attach to it, but it's the first thing in the data that sounds like an answer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="prose">
+  <p>i've been surrounded by music my whole life: years of guitar lessons, <a href="https://open.spotify.com/artist/1MrMu9X3lJAQHm0AXOoVgG" target="_blank" rel="noopener">aunties who are musicians</a> loved by many, sunday mornings loud with everything from metal to michael bublé. but some cocteau twins songs i can't hear without being somewhere else. “bluebeard” and the unhealthy number of times i watched <i>coraline</i>. “a kissed out red floatboat” and a memory i can't quite place, only that something is there. “cico buff” and my last night on campus.</p>
+  <p>find them below, and see what they sit next to.</p>
+</section>
+
+<!-- ============================================================ 5. FAMILIES + EXPLORER -->
+<section class="chapter" id="families">
+  <header class="chapter__head">
+    <p class="chapter__num">v.</p>
+    <h2>four families of sound</h2>
+  </header>
+  <div class="prose">
+    <p>to see if the songs fall into natural groups, i clustered them on six measurements: energy, positivity, acousticness, danceability, instrumentalness and loudness. tempo was left out for the reason above. four groups gave the clearest split i could explain.</p>
+    <p class="note">the groups overlap (silhouette ≈ 0.25), so think of them as neighbourhoods, not walls. the names are mine.</p>
+  </div>
+  <div class="families" id="family-cards"></div>
+
+  <div class="explore" id="explore">
+    <figure class="viz explore__map" id="viz-map">
+      <div class="viz__controls">
+        <label class="toggle"><input type="checkbox" id="show-extras"> include the 70 extras (eps, b-sides, sessions)</label>
+      </div>
+      <div class="viz__plot"></div>
+      <figcaption class="viz__axes">
+        <span>← quieter, more acoustic</span><span>louder, more electric →</span>
+      </figcaption>
+    </figure>
+    <aside class="card" id="song-card" aria-live="polite">
+      <label class="card__pick">
+        <span>find a song</span>
+        <select id="song-select"></select>
+      </label>
+      <button type="button" class="card__shuffle" id="shuffle">surprise me</button>
+      <div class="card__body"></div>
+    </aside>
+  </div>
+  <div class="prose">
+    <p class="note">the map squeezes six measurements into two directions, which keeps about 74% of the variation. left to right is roughly quiet and acoustic to loud and electric. bottom to top is roughly dense, dark and voice-buried to brighter, more danceable, and with a clearer voice. “closest” songs are measured across all six, not just on the map.</p>
+  </div>
+</section>
+
+<!-- ============================================================ 6. ENDING -->
+<section class="chapter chapter--end" id="end">
+  <header class="chapter__head">
+    <p class="chapter__num">vi.</p>
+    <h2>what the numbers can't hold</h2>
+  </header>
+  <div class="prose">
+    <p>here is what the data could tell me. the band was loudest at the start, went almost silent in 1986, and came back brighter. their energy almost never arrives with happiness attached. and early on, even a machine built to find voices struggled to find hers.</p>
+    <p>here is what it couldn't. it doesn't know the lyrics, and with this band, often nobody did. “positivity” is a model's guess at a sound, not anyone's feeling. it doesn't know where i was. there is no column for memory.</p>
+
+    <p>so i'll take the plastic chair again, sit down, and put on <i>blue bell knoll</i>. i know a little more now about what i'm hearing. the loud songs were never telling me to be happy. her voice was hard to find, even for a machine. but it still can't tell me why it brings back <i>coraline</i>, or campus, or the people who aren't here anymore. that part is mine.</p>
+
+    <p class="question question--end">can data help me understand the music attached to my memories? a little. it gave me words for the sound. maybe the reason the memories matter was never in the sound.</p>
+  </div>
+</section>
+
+<!-- ============================================================ METHODS -->
+<section class="methods">
+  <details>
+    <summary>how this was made</summary>
+    <div class="methods__body">
+      <h3>data</h3>
+      <p>a csv of spotify audio features for cocteau twins: 259 rows across 20 releases. spotify computes these features with its own algorithms and has not published exactly how. in late 2024 it stopped giving new developers access to them.</p>
+      <h3>cleaning</h3>
+      <ul>
+        <li>grouped the three spellings of <i>four-calendar café</i> and used original release years instead of the file's <code>album_year</code>, which describes the edition (one copy is dated 1991).</li>
+        <li>for albums with several copies, i kept the copy without a “remastered 2006” tag whose numbers sat closest to the per-song median of all its copies.</li>
+        <li>a compilation track counts as a repeat of an album song when the title matches and the running time is within 4 seconds, or when it's tagged as the 2006 remaster. everything else on a compilation is one of the 70 extras. extras repeated across compilations are kept once.</li>
+        <li>result: 85 studio-album songs, 70 extra recordings, 104 repeats set aside.</li>
+      </ul>
+      <h3>analysis</h3>
+      <ul>
+        <li>correlations are spearman's ρ on the 85 album songs (energy–positivity ρ = 0.33, p = 0.002; year–positivity ρ = 0.42; year–instrumentalness ρ = −0.56).</li>
+        <li>families: k-means (k = 4) on standardised energy, valence, acousticness, danceability, instrumentalness and loudness. silhouette scores were 0.41 for k = 2, 0.31 for 3, and 0.25–0.26 for 4 to 6. i chose 4 because it is the smallest split that separates the later songs into a brighter group and a more wistful one, which differ clearly in positivity.</li>
+        <li>map: the first two principal components of the same standardised features (53% + 21% of variance). extras are projected onto it and assigned the nearest family.</li>
+        <li>nearest songs: euclidean distance across the six standardised features.</li>
+      </ul>
+      <h3>limits</h3>
+      <p>these are measurements of audio files, and as chapter ii shows, they change with mastering. 85 songs is a small sample, so treat the patterns as descriptions of this catalogue, not general laws. nothing here measures lyrics, context or meaning.</p>
+      <p class="methods__files">files: <a href="analysis/prepare_data.py">prepare_data.py</a> · <a href="analysis/cocteau_twins_discography.csv">the raw csv</a> · <a href="data.js">processed data</a></p>
+    </div>
+  </details>
+  <p class="methods__back"><a href="../../writings.html">← back to writings</a></p>
+</section>
+
+</main>
+
+<div class="tip" id="tip" role="status" aria-live="off"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="data.js"></script>
+<script src="essay.js"></script>
+</body>
+</html>

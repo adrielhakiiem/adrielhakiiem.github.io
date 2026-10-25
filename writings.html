@@ -36,17 +36,33 @@
   .wrap{ max-width:var(--maxw); margin:0 auto; padding-block:clamp(34px,6vw,60px);
     padding-left:max(24px,env(safe-area-inset-left,0px)); padding-right:max(24px,env(safe-area-inset-right,0px)); }
 
-  /* listing grid + cards */
-  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:clamp(28px,4vw,44px); }
-  .item{ display:flex; flex-direction:column; align-items:flex-start; gap:10px; min-width:0; text-decoration:none; color:inherit; }
-  .item__image{ display:block; width:100%; aspect-ratio:16/10; object-fit:cover; border:1px solid var(--line); background:var(--head); }
-  .item--empty{ border:1.5px dashed var(--line); padding:clamp(18px,3vw,24px); opacity:.72; transition:opacity .15s ease; }
-  .item--empty:hover, .item--empty:focus-visible{ opacity:1; outline:none; }
-  .item__year{ font-size:13px; font-weight:700; }
-  .item__title{ font-size:clamp(18px,2.4vw,22px); font-weight:700; line-height:1.15; letter-spacing:-.01em; }
-  .item__desc{ font-size:15px; font-weight:400; line-height:1.5; }
+  /* writings index: one row per piece, numbered like a contents page */
+  .list{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line); counter-reset:entry; }
+  .entry{ border-bottom:1px solid var(--line); counter-increment:entry; }
+  .entry__link{ display:grid; grid-template-columns:minmax(150px,220px) 1fr; gap:clamp(20px,4vw,48px); align-items:start;
+    padding-block:clamp(24px,4vw,40px); text-decoration:none; color:inherit; }
+  .entry__thumb{ position:relative; overflow:hidden; border:1px solid var(--line); background:var(--head); aspect-ratio:4/5; }
+  .entry__thumb img{ display:block; width:100%; height:100%; object-fit:cover; object-position:50% 20%;
+    filter:grayscale(.35) contrast(1.02); transition:transform .5s cubic-bezier(.2,.7,.2,1), filter .4s ease; }
+  .entry__link:hover .entry__thumb img, .entry__link:focus-visible .entry__thumb img{ transform:scale(1.035); filter:none; }
+  .entry__body{ display:flex; flex-direction:column; align-items:flex-start; gap:12px; min-width:0; }
+  .entry__meta{ display:flex; flex-wrap:wrap; gap:6px 14px; font-size:13px; font-weight:700; }
+  .entry__meta::before{ content:counter(entry,decimal-leading-zero); color:var(--head); }
+  .entry__meta span + span::before{ content:"·"; margin-right:14px; font-weight:400; }
+  .entry__title{ font-size:clamp(26px,4.2vw,44px); font-weight:800; line-height:1; letter-spacing:-.025em; margin:0; }
+  .entry__desc{ font-size:clamp(15px,1.8vw,17px); line-height:1.55; max-width:56ch; margin:0; }
+  .entry__more{ font-size:14px; font-weight:700; margin-top:4px; display:inline-flex; gap:8px; align-items:center; }
+  .entry__more i{ font-style:normal; display:inline-block; transition:transform .2s ease; }
+  .entry__link:hover .entry__more i, .entry__link:focus-visible .entry__more i{ transform:translateX(5px); }
+  .entry__link:hover .entry__title, .entry__link:focus-visible .entry__title{ text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:6px; }
+  .entry__link:focus-visible{ outline:2px solid var(--head); outline-offset:6px; }
   .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:2px; }
   .tag{ font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; border:1px solid var(--line); padding:5px 11px; line-height:1; }
+  @media (max-width:560px){
+    .entry__link{ grid-template-columns:1fr; gap:18px; }
+    .entry__thumb{ aspect-ratio:4/3; }
+    .entry__thumb img{ object-position:50% 12%; }
+  }
 
   /* prose (about + detail pages) */
   .doc{ max-width:680px; display:flex; flex-direction:column; gap:22px; }
@@ -88,24 +104,29 @@
 
 <main class="wrap">
   <!-- ADD A WRITING:
-       1. Copy writing1.html inside the /writings/ folder to writing2.html (etc.) and write your piece in it.
-       2. Duplicate the <a class="item"> card below, point its href at the new file, and fill in date / title / summary.
-       3. Replace the image src with your writing's thumbnail. -->
-  <div class="grid">
+       1. Make a folder for it inside /writings/ (like /writings/cocteau-twins/) with its own HTML file.
+       2. Copy the <li class="entry"> below, point its href at the new file, and fill in date / reading time / title / summary / tags.
+       3. Put the thumbnail in /assets/. Portrait images work best (the frame is 4:5). Newest writing goes first. -->
+  <ol class="list">
 
-    <a class="item" href="writings/writing1.html">
-      <img class="item__image" src="assets/cocteau-twins.jpg" alt="Cocteau Twins">
-      <div class="item__year">Oct 2026</div>
-      <div class="item__title">A Small Attempt at Understanding</div>
-      <div class="item__desc">Can data explain the music we attach to our memories? An interactive exploration of Cocteau Twins' discography, blending data analysis with personal storytelling.</div>
-      <div class="tags">
-        <span class="tag">Data storytelling</span>
-        <span class="tag">Data visualization</span>
-        <span class="tag">Exploratory data analysis</span>
-      </div>
-    </a>
+    <li class="entry">
+      <a class="entry__link" href="writings/cocteau-twins/cocteau-twins.html">
+        <div class="entry__thumb"><img src="assets/cocteau-twins.jpg" alt="Cocteau Twins: Robin Guthrie, Elizabeth Fraser and Simon Raymonde" loading="lazy"></div>
+        <div class="entry__body">
+          <div class="entry__meta"><span>Oct 2026</span><span>Interactive essay</span><span>~15 min</span></div>
+          <h2 class="entry__title">a small attempt at understanding</h2>
+          <p class="entry__desc">Can data explain the music we attach to our memories? 259 rows of Spotify audio features, cleaned down to 85 songs, used to look at why Cocteau Twins stays with me.</p>
+          <div class="tags">
+            <span class="tag">Data storytelling</span>
+            <span class="tag">Clustering</span>
+            <span class="tag">D3</span>
+          </div>
+          <span class="entry__more">Read the essay <i aria-hidden="true">→</i></span>
+        </div>
+      </a>
+    </li>
 
-  </div>
+  </ol>
 </main>
 
 <script>
